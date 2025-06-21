@@ -13,6 +13,9 @@ def display_menu():
     print("5. Search files by name pattern")
     print("6. Rescan directory")
     print("7. Exit")
+    print("8. File operations (rename, delete, move, mark)")
+    print("9. Check duplicates across directories")
+
     print("===================================")
 
 def run_cli():
