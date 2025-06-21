@@ -71,5 +71,5 @@ def merge_multi(left, right, keys):
 # print("\nAfter Multi-Level Sorting by name, size, then date:")
 # for file in files_sorted:
 #     print(f"Name: {file['name']}, Size: {file['size']}, Date: {file['date']}")
-def sort_files(files):
-    return merge_sort_multi(files, keys=["name", "size", "date"])
+def sort_files(files,keys=["name", "size", "date"]):
+    return merge_sort_multi(files, keys)
