@@ -1,4 +1,4 @@
-def rabin_karp_search(pattern, file_list, prime=101):
+def rabin_karp_search(pattern, file_list,param, prime=101):
     matches = []
     d = 256  # ASCII character base
     m = len(pattern)
@@ -15,7 +15,7 @@ def rabin_karp_search(pattern, file_list, prime=101):
         pattern_hash = (d * pattern_hash + ord(pattern[i])) % prime
 
     for file in file_list:
-        text = file["name"].lower()
+        text = file[param].lower()
         n = len(text)
         text_hash = 0
         found = False
@@ -42,7 +42,7 @@ def rabin_karp_search(pattern, file_list, prime=101):
     return matches
 
 
-def search_files(pattern,files):
+def search_files(pattern,files,param='name'):
     """
     Search for files whose names contain the given pattern using the Rabin-Karp algorithm.
     
@@ -51,7 +51,7 @@ def search_files(pattern,files):
     :return: List of matching file dictionaries.
     """
     from sort import sort_files
-    return sort_files(rabin_karp_search(pattern, files))
+    return sort_files(rabin_karp_search(pattern, files,param))
 
 
 # files=[{'name': 'desktop.ini', 'size': 282, 'date': '2024-12-13T10:53:40.901762',
