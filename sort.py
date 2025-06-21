@@ -13,9 +13,9 @@ def file_compare(file1, file2, keys):
         v1 = file1[key]
         v2 = file2[key]
 
-        if key == "size":
-            v1 = size_to_bytes(v1)
-            v2 = size_to_bytes(v2)
+        # if key == "size":
+        #     v1 = size_to_bytes(v1)
+        #     v2 = size_to_bytes(v2)
 
         if v1 < v2:
             return -1
