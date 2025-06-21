@@ -50,7 +50,7 @@ def handle_duplicates(file_list, directory):
     duplicates = find_duplicates(file_list)
     if not duplicates:
         print("No duplicates found.")
-        return
+        return {}
     
     print("\n[DUPLICATE FILES]")
     for i, (hash_val, files) in enumerate(duplicates.items(), 1):
@@ -63,8 +63,8 @@ def handle_duplicates(file_list, directory):
 def handle_duplicate_management(duplicates, file_list, directory):
     if not duplicates:
         print("No duplicates to manage.")
-        return
-    
+        return file_list
+        
     print("\nDuplicate Management Options:")
     print("1. Mark duplicates for later action")
     print("2. Delete all duplicates")
@@ -201,8 +201,10 @@ def run_cli():
         elif choice == "2":
             duplicates = handle_duplicates(file_list, directory)
         elif choice == "3":
+            
             duplicates = handle_duplicates(file_list, directory)
-            file_list = handle_duplicate_management(duplicates, file_list, directory)
+            if duplicates:  # Only proceed if duplicates were found
+                file_list = handle_duplicate_management(duplicates, file_list, directory)
         elif choice == "4":
             pattern = input("Enter search pattern: ").strip()
             if pattern:
