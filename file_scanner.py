@@ -6,7 +6,7 @@ def get_file_metadata(file_path):
     return {
         'name': os.path.basename(file_path),
         'size': os.path.getsize(file_path),
-        'modified': datetime.datetime.fromtimestamp(os.path.getmtime(file_path)).isoformat(),
+        'date': datetime.datetime.fromtimestamp(os.path.getmtime(file_path)).isoformat(),
         'path': file_path,
         'extension': os.path.splitext(file_path)[1].lower(),
 
