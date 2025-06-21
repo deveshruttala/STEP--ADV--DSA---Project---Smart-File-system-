@@ -9,7 +9,6 @@ def get_file_metadata(file_path):
         'modified': datetime.datetime.fromtimestamp(os.path.getmtime(file_path)).isoformat(),
         'path': file_path,
         'extension': os.path.splitext(file_path)[1].lower(),
-        'created': datetime.datetime.fromtimestamp(stat_info.st_ctime).isoformat(),
 
     }
 
@@ -33,5 +32,5 @@ if __name__ == "__main__":
     if not os.path.isdir(directory):
         print("Invalid directory path.")
     else:
-        metadata_list = scan_directory(directory) ## returns in dict, printed in json for now (test)
-        print(json.dumps(metadata_list, indent=2))
+        metadata_list = scan_directory(directory) 
+        print(metadata_list)
